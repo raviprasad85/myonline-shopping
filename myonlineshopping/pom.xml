@@ -13,6 +13,12 @@
 		<spring.version>4.3.25.RELEASE</spring.version>
 	</properties>
 	<dependencies>
+	<!-- link bakeng project -->
+	<dependency>
+		<groupId>net.vns</groupId>
+	<artifactId>myshoppingbackend</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	</dependency>
 
 		<!-- java EE api -->
 

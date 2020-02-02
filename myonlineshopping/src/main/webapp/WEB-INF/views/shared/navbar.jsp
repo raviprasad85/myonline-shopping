@@ -20,9 +20,12 @@
                 <ul class="nav navbar-nav">
                     <li id="about"><a href="${contextRoot}/about"}>About</a>
                     </li>
-                    <li id="listProduct"><a href="${contextRoot}/ListProducts"}>View Product</a>
-                    </li>
+                   
                     <li id="contact"><a href="${contextRoot}/contact"}>Contact</a>
+                    </li>
+                    
+                    
+                     <li id="listProduct"><a href="${contextRoot}/show/all/products"}>View Product</a>
                     </li>
                 </ul>
             </div>
