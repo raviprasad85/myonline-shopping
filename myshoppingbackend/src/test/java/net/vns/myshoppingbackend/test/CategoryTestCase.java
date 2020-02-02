@@ -40,7 +40,7 @@ public class CategoryTestCase {
 	}*/
 	
 	@Test
-	public void testGetCategory() {
+	public void testGetCategory(){
 		category=categoryDAO.get(1);
 		assertEquals("Successfully fetch a category  the table!","LED",category.getName());
 		
