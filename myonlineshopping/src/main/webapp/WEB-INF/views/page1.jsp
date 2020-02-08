@@ -72,6 +72,8 @@
 		<!-- JavaScript -->
 		<script src="${js}/jquery.js"></script>
 		<script src="${js}/bootstrap.js"></script>
+		<!-- Data Table plugins js -->
+		<script src="${js}/dataTables.js"></script>
 		<!-- active menu bar -->
 		<script src="${js}/myapp.js"></script>
 

@@ -1,9 +1,9 @@
 package net.vns.myshoppingbackend.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,9 +17,10 @@ public class CategoryDAOImpl implements CategoryDAO {
 	
 	@Autowired
 	private SessionFactory sessionFactory;
+	/*	static
 	private static List<Category> cagegories=new ArrayList<>();
 	
-/*	static {
+ {
 		Category category=new Category();
 		category.setId(1);
 		category.setName("LED");
@@ -53,7 +54,10 @@ public class CategoryDAOImpl implements CategoryDAO {
 	@Override
 	public List<Category> list() {
 		// TODO Auto-generated method stub
-		return null;
+		String selectActiveCategory="from Category where active=:active";
+		Query query=sessionFactory.getCurrentSession().createQuery(selectActiveCategory);
+		query.setParameter("active", true);
+		return query.getResultList();
 	}
 /*
  * Getting single category based on id
@@ -89,14 +93,29 @@ public class CategoryDAOImpl implements CategoryDAO {
 
 	@Override
 	public boolean update(Category category) {
-		// TODO Auto-generated method stub
-		return false;
+		try {
+			//add category to the database table
+			sessionFactory.getCurrentSession().update(category);
+			return true;
+		}catch (Exception ex) {
+			// TODO: handle exception
+			ex.printStackTrace();
+			return false;
+		}
 	}
 
 	@Override
 	public boolean delete(Category category) {
-		// TODO Auto-generated method stub
-		return false;
+		category.setActive(false);
+		try {
+			//add category to the database table
+			sessionFactory.getCurrentSession().update(category);
+			return true;
+		}catch (Exception ex) {
+			// TODO: handle exception
+			ex.printStackTrace();
+			return false;
+		}
 	}
 
 }

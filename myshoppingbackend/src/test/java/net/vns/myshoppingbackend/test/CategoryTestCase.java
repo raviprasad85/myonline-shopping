@@ -39,11 +39,67 @@ public class CategoryTestCase {
 		
 	}*/
 	
-	@Test
+/*	@Test
 	public void testGetCategory(){
 		category=categoryDAO.get(1);
 		assertEquals("Successfully fetch a category  the table!","LED",category.getName());
 		
+	}*/
+	
+	
+	/*	@Test
+	public void testUpdateCategory(){
+		category=categoryDAO.get(1);
+		category.setName("LCD");
+		assertEquals("Successfully updadte a category  the table!",true,categoryDAO.update(category));
+		
+	}*/
+	
+	
+	/*	@Test
+	public void testDeleteCategory(){
+		category=categoryDAO.get(1);
+		
+		assertEquals("Successfully delete a category  the table!",true,categoryDAO.delete(category));
+		
+	}*/
+	
+	
+	/*@Test
+	public void testListCategory(){
+		category=categoryDAO.get(1);
+		
+		assertEquals("Successfully fatch of the list category  the table!",3,categoryDAO.list().size());
+		
+	}*/
+	
+	
+	@Test
+	public void testCRUDCategory() {
+		category = new Category();
+	    category.setName("Laptop");
+		category.setDescription("Laptop description !");
+		category.setImageURL("Cat_1.png");
+		
+		assertEquals("Successfully added a category inside the table!",true,categoryDAO.add(category));
+		
+		category = new Category();
+		category.setName("Television");
+		category.setDescription("Television description !");
+		category.setImageURL("Cat_2.png");
+		
+		assertEquals("Successfully added a category inside the table!",true,categoryDAO.add(category));
+		
+		//fetching and update the category
+		category=categoryDAO.get(2);
+		category.setName("LCD");
+		assertEquals("Successfully updadte a category  the table!",true,categoryDAO.update(category));
+		
+		//delete the category
+		assertEquals("Successfully delete a category  the table!",true,categoryDAO.delete(category));
+		
+		//fetching the list
+		assertEquals("Successfully fatch of the list category  the table!",1,categoryDAO.list().size());
 	}
 	
 }
