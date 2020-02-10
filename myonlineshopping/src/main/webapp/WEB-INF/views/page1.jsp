@@ -18,6 +18,7 @@
 <title>MyOnline Shopping- ${title}</title>
 <script>
 	window.menu = '${title}';
+	window.contextRoot='${contextRoot}'
 	
 	window.contextRoot = '${contextRoot}'
     </script>
@@ -27,6 +28,9 @@
 
 <!-- Bootstrap readable them CSS -->
 <link href="${css}/bootstrap-readable-theme.css" rel="stylesheet">
+
+<!-- Bootstrap readable DataTable CSS -->
+<link href="${css}/dataTables.bootstrap.css" rel="stylesheet">
 
 <!-- Add custom CSS here -->
 <link href="${css}/myapp.css" rel="stylesheet">
@@ -73,7 +77,10 @@
 		<script src="${js}/jquery.js"></script>
 		<script src="${js}/bootstrap.js"></script>
 		<!-- Data Table plugins js -->
-		<script src="${js}/dataTables.js"></script>
+		<script src="${js}/jquery.dataTables.js"></script>
+		
+		<!-- Data Table bootstrap js -->
+		<script src="${js}/dataTables.bootstrap.js"></script>
 		<!-- active menu bar -->
 		<script src="${js}/myapp.js"></script>
 
