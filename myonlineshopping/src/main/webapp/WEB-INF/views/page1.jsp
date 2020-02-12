@@ -38,12 +38,11 @@
 </head>
 
 <body>
-		<!-- <div class="se-pre-con"></div> -->
+	<!-- <div class="se-pre-con"></div> -->
 	<div class="wrapper">
 		<!-- Navigation -->
 		<%@include file="./shared/navbar.jsp"%>
 		<!-- page Content -->
-
 		<div class="content">
 
 			<!-- Loading the home page content -->
@@ -60,11 +59,18 @@
 			<c:if test="${userClickContact == true }">
 				<%@include file="contact.jsp"%>
 			</c:if>
-			
-			
+
+
 			<!-- Load only when user clicks contact -->
-			<c:if test="${userClickAllProducts == true or userClickCategoryProducts==true}">
+			<c:if
+				test="${userClickAllProducts == true or userClickCategoryProducts==true}">
 				<%@include file="listProducts.jsp"%>
+			</c:if>
+			
+			<!-- Load only when user clicks show product only -->
+			<c:if
+				test="${userClickShowProducts == true}">
+				<%@include file="singleProduct.jsp"%>
 			</c:if>
 		</div>
 		<!-- /.container -->
@@ -78,7 +84,7 @@
 		<script src="${js}/bootstrap.js"></script>
 		<!-- Data Table plugins js -->
 		<script src="${js}/jquery.dataTables.js"></script>
-		
+
 		<!-- Data Table bootstrap js -->
 		<script src="${js}/dataTables.bootstrap.js"></script>
 		<!-- active menu bar -->

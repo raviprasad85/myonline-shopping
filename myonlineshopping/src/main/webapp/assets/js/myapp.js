@@ -48,7 +48,7 @@ $(function () {
 		if (window.categoryId == '') {
 			jsonUrl = window.contextRoot + '/json/data/all/products';
 		} else {
-			jsonUrl = window.contextRoot + '/json/data/category/'+ window.categoryId + '/products';
+			jsonUrl = window.contextRoot + '/json/data/catgory/'+ window.categoryId + '/products';
 		}
 		
 		$table.DataTable({
