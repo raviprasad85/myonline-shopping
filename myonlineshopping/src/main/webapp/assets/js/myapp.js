@@ -12,6 +12,10 @@ $(function () {
 		$('#listProduct').addClass('active');
 		break;
 		
+	case 'Manage Products':
+		$('#manageProducts').addClass('active');
+		break;
+		
 /*	default:
 		$('#listProduct').addClass('active');
 	   $('#a_'+menu).addClass('active');
@@ -114,5 +118,14 @@ $(function () {
 				}
 			]
 		});
+	}
+	
+	//dismissing the alert after 3 sec
+	var $alert=$('.alert');
+	if($alert.length){
+		setTimeout(function(){
+			$alert.fadeOut('slow');
+			
+		},3000)
 	}
 });
