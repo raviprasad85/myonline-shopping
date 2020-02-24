@@ -2,16 +2,23 @@ package net.vns.myonlineshopping.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import net.vns.myonlineshopping.util.FileUploadUtility;
+import net.vns.myonlineshopping.validator.ProductValidator;
 import net.vns.myshoppingbackend.dao.CategoryDAO;
 import net.vns.myshoppingbackend.dao.ProductDAO;
 import net.vns.myshoppingbackend.dto.Category;
@@ -48,11 +55,24 @@ public class ManagementController {
 	}
 	//handling product submission
 	@RequestMapping(value="/products",method=RequestMethod.POST)
-	public String handleProductSubmission(@ModelAttribute("product")Product MProduct) {
+	public String handleProductSubmission(@Valid @ModelAttribute("product")Product MProduct,BindingResult result,Model model,
+			HttpServletRequest request) {
 		
+		new ProductValidator().validate(MProduct, result);
+		//check if there are any error
+		if(result.hasErrors()) {
+			model.addAttribute("userClickManageProducts",true);
+			model.addAttribute("title","Manage Products");
+			model.addAttribute("message","Validation failed for product Submission!");
+			return "page1";
+		}
 		logger.info(MProduct.toString());
 		//create a new product record
         productDAO.add(MProduct);
+        
+        if(!MProduct.getFile().getOriginalFilename().equals("")) {
+        	FileUploadUtility.uploadFile(request,MProduct.getFile(),MProduct.getCode());
+        }
 		
 		return "redirect:/manage/products?operation=product";
 		
