@@ -128,4 +128,37 @@ $(function () {
 			
 		},3000)
 	}
+	
+	//---
+	$('.switch input[type="checkbox"]').on('change',function(){
+		var checkbox = $(this);
+		var checked=checkbox.prop('checked');
+		var dMsg = ('checked')? 'You Want to activate the product ?':
+		                       'You Want to activate the product ?';
+		var value=checkbox.prop('value');
+		bootbox.confirm({
+			size: 'medium',
+			title:'Product Activation & Deativation',
+			message: dMsg,
+			callback: function(confirmed){
+				
+				if(confirmed){
+					consol.log(value);
+					bootbox.alert({
+						size:'medium',
+						title:'Information',
+						message:'You are going to perform operation on product'+value
+					});
+				}else{
+					checkbox.prop('checked',!checked); 
+				}
+			}
+			
+		
+			
+			
+		});
+		
+	});
+	
 });
