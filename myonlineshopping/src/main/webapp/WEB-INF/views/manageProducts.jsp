@@ -152,6 +152,7 @@
 					<tr>					
 						<th>Id</th>
 						<th>&#160;</th>
+						<th>Brand</th>
 						<th>Name</th>
 						<th>Quantity</th>
 						<th>unit price</th>
@@ -159,13 +160,14 @@
 						<th>Edit</th>
 					</tr>					
 				</thead>
-				<tbody>
+	<%-- 			<tbody>
 				<tr>
 				<td>1 </td>
 				<td>
 				<img class="adminDataTableImg" src="${contextRoot}/resources/images/PRDABC123DEFX.jpg" alt="iPhone 5s">
 				
 				 </td>
+				<td>apple</td>
 				<td>iPhone 5s</td>
 				<td>3 </td>
 				<td>&#8377; 18000.00 /-</td>
@@ -193,6 +195,7 @@
 				<img class="adminDataTableImg" src="${contextRoot}/resources/images/PRDABC123DEFX.jpg" alt="iPhone 5s">
 				
 				 </td>
+				 <td>apple</td>
 				<td>iPhone 5s</td>
 				<td>3 </td>
 				<td>&#8377; 18000.00 /-</td>
@@ -211,11 +214,12 @@
 				</a>
 				 </td>
 				</tr>
-				</tbody>
+				</tbody> --%>
 				<tfoot>
 					<tr>					
 						<th>Id</th>
 						<th>&#160;</th>
+						<th>Brand</th>
 						<th>Name</th>
 						<th>Quantity</th>
 						<th>unit price</th>

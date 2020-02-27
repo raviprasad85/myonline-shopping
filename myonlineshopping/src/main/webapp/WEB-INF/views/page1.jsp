@@ -96,8 +96,8 @@
 		<script src="${js}/dataTables.bootstrap.js"></script>
 		
 		<!-- bootbox js -->
-	<%-- 	<script src="${js}/bootbox.min.js"></script> --%>
-		<script src="${js}/bootbox.all.min.js"></script>
+		<script src="${js}/bootbox.min.js"></script>
+		<%-- <script src="${js}/bootbox.all.min.js"></script> --%>
 		
 		
 		<!-- active menu bar -->
